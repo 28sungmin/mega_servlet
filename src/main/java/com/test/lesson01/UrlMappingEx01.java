@@ -14,6 +14,8 @@ public class UrlMappingEx01 extends HttpServlet {
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
+		// 테스트용 주석 추가
+		
 		// 한글 깨짐 방지 -> response header에 세팅
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("text/plain");
