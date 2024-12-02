@@ -14,7 +14,10 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/lesson01/quiz10")
 public class PostMethodQuiz10 extends HttpServlet{
 	
+	// public static final이라고 있어도 됨.
 	private final Map<String, String> userMap =  new HashMap<String, String>() {
+		// {}으로 되어있으면 단건(한 사람에 대한 내용만 들어있음)
+		// []으로 되어있으면 여러건(여러 사람들에 대한 내용만 들어있음)
 	    {
 	        put("id", "marobiana");
 	        put("password", "qwerty1234");

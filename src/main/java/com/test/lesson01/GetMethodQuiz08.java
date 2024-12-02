@@ -34,16 +34,16 @@ public class GetMethodQuiz08 extends HttpServlet{
 		PrintWriter out = response.getWriter();
 		
 		out.print("<html><head><title>검색 결과</title></head><body>");
-		for (int i = 0; i < list.size(); i++) {
-			if (list.get(i).contains(check)) {
-				// 방법1)
-				// out.print(list.get(i).replace(check, "<b>" + check + "</b>") + "<br />");				
-				
-				// 방법2)
-				String bold = "<b>" + check + "</b>";
+//		for (int i = 0; i < list.size(); i++) {
+//			if (list.get(i).contains(check)) {
+//				// 방법1)
+//				out.print(list.get(i).replace(check, "<b>" + check + "</b>") + "<br />");				
+//				
+//				// 나의 방법2)
+//				String bold = "<b>" + check + "</b>";
 //				String[] sentences = list.get(i).split(" ");
-				List<String> sentences = new ArrayList<>(Arrays.asList(list.get(i).split(" ")));
-				out.print(sentences);
+//				List<String> sentences = new ArrayList<>(Arrays.asList(list.get(i).split(" ")));
+//				out.print(sentences);
 //				for (int j = 0; j < sentences.length; j++) {
 //					if (sentences[j].equals(check)) {
 //						out.print(bold + " ");
@@ -51,17 +51,25 @@ public class GetMethodQuiz08 extends HttpServlet{
 //					}
 //					out.print(sentences[j] + " ");
 //				}
-//				out.print("<br />");
-			}
-		}
+//				out.print("<br />");	
+//			}
+//		}
 		
 		// 선생님 풀이
 		// 향상된 for문
-//		for (String text : list) {
-//			if (text.contains(check)) {
+		for (String text : list) {
+			if (text.contains(check)) {
+				// 방법1)
 //				out.print(text.replace(check, "<b>" + check + "</b>") + "<br />");		
-//			}
-//		}
+				
+				// 선생님 방법2) split => 기준은 check : 아직은 완벽한 방법은 아님
+				String[] words = text.split(check);
+				out.print(words[0] + "<b>" + check + "</b>" + words[1] + "<br />");
+				
+				// 방법3) c언어처럼 indexOf()를 생각하기 => 좋은 방법은 아님
+				// check의 시작 인덱스를 찾아서 check의 length만큼 찾아내는 방법
+			}
+		}
 		out.print("</body></html>");
 	}
 }
