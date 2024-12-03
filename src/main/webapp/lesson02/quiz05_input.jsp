@@ -16,7 +16,7 @@
 		<form method="post" action="/lesson02/quiz05_result.jsp">
 			<div class="d-flex">
 				<input type="text" name="number1" class="form-control col-3 mr-1">
-				<select class="form-control col-2 mr-1">
+				<select name="calc" class="form-control col-2 mr-1">
 					<option>+</option>
 					<option>-</option>
 					<option>*</option>
