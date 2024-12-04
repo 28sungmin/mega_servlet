@@ -65,33 +65,35 @@
 		        <li class="nav-item"><a href="/lesson02/quiz09_template.jsp?category=스포츠" class="nav-link text-white">스포츠</a></li>
 		    </ul>
 		</nav>
-		<table class="table text-center">
-			<thead>
-				<tr>
-					<th>채널</th>
-					<th>채널명</th>
-					<th>카테고리</th>
-				</tr>
-			</thead>
-			<tbody>
-			<%
-				String category = request.getParameter("category");
-				for (Map<String, String> tv : list) {
-					if (category != null && !category.equals(tv.get("category"))) {	
-						continue;
-					}
-			%>
-				<tr>
-					<td><%= tv.get("ch") %></td>
-					<td><%= tv.get("name") %></td>
-					<td><%= tv.get("category") %></td>
-				</tr>
-			<%
-					
-				}	
-			%>
-			</tbody>
-		</table>
+		<section>
+			<table class="table text-center">
+				<thead>
+					<tr>
+						<th>채널</th>
+						<th>채널명</th>
+						<th>카테고리</th>
+					</tr>
+				</thead>
+				<tbody>
+				<%
+					String category = request.getParameter("category");
+					for (Map<String, String> tv : list) {
+						if (category != null && !category.equals(tv.get("category"))) {	
+							continue;
+						}
+				%>
+					<tr>
+						<td><%= tv.get("ch") %></td>
+						<td><%= tv.get("name") %></td>
+						<td><%= tv.get("category") %></td>
+					</tr>
+				<%
+						
+					}	
+				%>
+				</tbody>
+			</table>
+		</section>
 		<footer>
 			<p class="text-center text-secondary">
 				Copyright 2024. marondal All Rights Reserved.
