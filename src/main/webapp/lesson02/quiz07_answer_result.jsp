@@ -13,6 +13,7 @@
 </head>
 <body>
 	<%
+		// 어떤 자료형의 값이 들어갈지 모를 때는 Object라고 하면 된다.
 		List<Map<String, Object>> list = new ArrayList<>();
 	    Map<String, Object> map = new HashMap<String, Object>() {{ put("name", "버거킹"); put("menu", "햄버거"); put("point", 4.3); } };
 	    list.add(map);
@@ -28,9 +29,6 @@
 	    list.add(map);
 	    map = new HashMap<String, Object>() {{ put("name", "반올림피자"); put("menu", "피자"); put("point", 4.3); } };
 	    list.add(map);
-	    
-	    String menu = request.getParameter("menu");
-	    String point = request.getParameter("point");
 	%>
 	
 	<div class="container">
@@ -45,25 +43,25 @@
 			</thead>
 			<tbody>
 			<%
-			    for (int i = 0; i < list.size(); i++) {
-			    	String pointStr = list.get(i).get("point").toString();
-			    	double pointDouble = Double.parseDouble(pointStr);
-			    	if (point == null && list.get(i).get("menu").equals(menu)) {			    			
+				// request param
+				String keyword = request.getParameter("keyword");
+				String starPointFilter = request.getParameter("starPointFilter");
+				
+			    for (Map<String, Object> item : list) {	
+			    	if (keyword.equals(item.get("menu"))) {
+			    		// skip이 되는 조건을 만들기
+			    		// 4점 이하 제외 조건이 체크되어있고, 그러면서 4점 이하일 때 skip을 시킨다. => 제외를 해야 하니까.
+			    		if (starPointFilter != null && (double)item.get("point") <= 4) {
+			    			continue;
+			    		}
+			    		
 			%>
 				<tr>
-					<td><%= menu %></td>
-					<td><%= list.get(i).get("name") %></td>
-					<td><%= list.get(i).get("point") %></td>
+					<td><%= item.get("menu") %></td>
+					<td><%= item.get("name") %></td>
+					<td><%= item.get("point") %></td>
 				</tr>
 				
-			<%
-			    	} else if (point != null && list.get(i).get("menu").equals(menu) && pointDouble > 4.0) {
-			%>
-				<tr>
-					<td><%= menu %></td>
-					<td><%= list.get(i).get("name") %></td>
-					<td><%= list.get(i).get("point") %></td>
-				</tr>
 			<%
 			    	}
 			    }

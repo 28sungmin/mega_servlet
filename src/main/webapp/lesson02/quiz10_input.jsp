@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>배탈의 민족</title>
+<title>노래 리스트</title>
 <!-- bootstrap CDN -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
@@ -12,17 +12,17 @@
 </head>
 <body>
 	<div class="container">
-		<h1>메뉴 검색</h1>
-		<form method="post" action="/lesson02/quiz07_result.jsp">
-			<div class="d-flex align-items-center">
-				<input type="text" name="menu" class="form-control col-5 mr-2" placeholder="메뉴를 입력하세요">
-				<label>
-					<input type="checkbox" name="point" value="point">
-					<span>4점 이하 제외</span>
-				</label>
-			</div>
-			<button type="submit" class="btn btn-success mt-3">검색</button>
-		</form>
+		<header class="d-flex bg-warning">
+			<h3 class="text-success">Melong</h3>
+			<form method="get" action="quiz10_result.jsp">
+				<div class="d-flex bg-secondary">
+					<input type="text" name="keyword" class="form-control col-6">
+					<button type="submit" class="btn btn-info">검색</button>
+				</div>
+			</form>			
+		</header>
+		<div></div>
+		<footer></footer>
 	</div>
 </body>
 </html>

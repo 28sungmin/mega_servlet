@@ -13,11 +13,11 @@
 <body>
 	<div class="container">
 		<h1>메뉴 검색</h1>
-		<form method="post" action="/lesson02/quiz07_result.jsp">
+		<form method="get" action="/lesson02/quiz07_answer_result.jsp">
 			<div class="d-flex align-items-center">
-				<input type="text" name="menu" class="form-control col-5 mr-2" placeholder="메뉴를 입력하세요">
-				<label>
-					<input type="checkbox" name="point" value="point">
+				<input type="text" name="keyword" class="form-control col-5 mr-2" placeholder="메뉴를 입력하세요">
+				<label class="m-0">
+					<input type="checkbox" name="starPointFilter" value="true">
 					<span>4점 이하 제외</span>
 				</label>
 			</div>
