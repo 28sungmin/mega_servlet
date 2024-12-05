@@ -53,7 +53,7 @@
 	%>
 	<div class="container">
 		<header>
-			<h2 class="text-danger text-center">Sk Broadbank IPTV</h2>		
+			<h2 class="text-danger text-center">Sk Broadband IPTV</h2>		
 		</header>
 		<nav class="bg-danger">
 		    <ul class="nav nav-fill font-weight-bold">
@@ -78,9 +78,14 @@
 				<%
 					String category = request.getParameter("category");
 					for (Map<String, String> tv : list) {
-						if (category != null && !category.equals(tv.get("category"))) {	
-							continue;
-						}
+					// 나의 풀이
+					// if (category != null && !category.equals(tv.get("category"))) {	
+					// 		continue;
+					// }
+					
+					// 선생님 풀이
+					// 출력되는 케이스: 전체(null) 또는 (category가 있고(!null)) -> 이 조건은 생략 가능. & 일치(map == param)할 때 
+						if (category == null || tv.get("category").equals(category)) {
 				%>
 					<tr>
 						<td><%= tv.get("ch") %></td>
@@ -88,7 +93,7 @@
 						<td><%= tv.get("category") %></td>
 					</tr>
 				<%
-						
+						}		
 					}	
 				%>
 				</tbody>
