@@ -138,7 +138,13 @@
 			</h3>			
 			<form method="get" action="quiz10_result.jsp">
 				<div class="search d-flex align-itmes-center">
-					<input type="text" name="keyword" class="form-control h-100">
+					<%
+						String keyword = request.getParameter("keyword");
+						if (keyword == null) {
+							keyword = "";
+						}
+					%>
+					<input type="text" name="keyword" class="form-control h-100" value="<%= keyword %>">
 					<button type="submit" class="btn btn-info">검색</button>
 				</div>
 			</form>			
@@ -157,7 +163,6 @@
 			<section class="information d-flex border border-success">
 				<%
 					// request param
-					String keyword = request.getParameter("keyword");
 					String id = request.getParameter("id");
 					Integer idInt = 0;
 					if (id != null) {
