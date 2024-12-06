@@ -164,7 +164,7 @@
 				<%
 					// request param
 					String id = request.getParameter("id");
-					Integer idInt = 0;
+					int idInt = 0;
 					if (id != null) {
 						idInt = Integer.parseInt(request.getParameter("id")); 
 					}
@@ -176,8 +176,8 @@
 						if (keyword != null) {
 							okayKeyword = keyword.equals(music.get("title"));
 						}
-						if (okayKeyword == true || idInt.equals(music.get("id"))) {	
-							int time = Integer.parseInt(music.get("time").toString());
+						if (okayKeyword == true || music.get("id").equals(idInt)) {	
+							int time = (int)music.get("time");
 							int m = time / 60;
 							int s = time % 60;
 				%>
